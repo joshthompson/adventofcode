@@ -6,3 +6,4 @@ My solutions to Advent of Code 2017 puzzles
 * `cd project_director`
 * `npm install`
 * `node static-server`
+* Visit `http://localhost:1990/`
