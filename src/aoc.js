@@ -2,7 +2,7 @@ var aoc =  [
 	{
 		// DAY 1
 		parts: [
-			(input) => {
+			input => {
 				let numbers = input.split('').map(i => parseInt(i))
 				numbers.push(numbers[0])
 				let sum = 0
@@ -12,7 +12,7 @@ var aoc =  [
 				}
 				return sum
 			},
-			(input) => {
+			input => {
 				let numbers = input.split('').map((i) => parseInt(i))
 				let sum = 0
 
@@ -27,7 +27,7 @@ var aoc =  [
 	{
 		// DAY 2
 		parts: [
-			(input) => {
+			input => {
 				return input.split('\n').map((line) => {
 					let values = line.split('\t').map(i => parseInt(i))
 					let min = Math.min.apply(Math, values)
@@ -35,7 +35,7 @@ var aoc =  [
 					return max - min
 				}).reduce((a, b) => a + b, 0)
 			},
-			(input) => {
+			input => {
 				return input.split('\n').map((line) => {
 					let values = line.split('\t').map(i => parseInt(i))
 					let divided_value = false
@@ -59,7 +59,7 @@ var aoc =  [
 	{
 		// DAY 3
 		parts: [
-			(n) => {
+			n => {
 
 				// Functions
 				let sideFn = level => 2 * level + 1
@@ -83,7 +83,7 @@ var aoc =  [
 				return level + distance
 				
 			},
-			(input) => {
+			input => {
 				let grid = {
 					'0,0': 1
 				}
@@ -143,11 +143,11 @@ var aoc =  [
 			}
 		},
 		parts: [
-			(input) => {
+			input => {
 				let passphrases = input.split('\n').map(line => line.split(' '))
 				return aoc[3].funcs.valid(passphrases)
 			},
-			(input) => {
+			input => {
 				let passphrases = input.split('\n').map(line => line.split(' ').map((word) => {
 					return word.split('').sort((a,b)=>a>b).join('')
 				}))
@@ -158,7 +158,7 @@ var aoc =  [
 	{
 		// DAY 5
 		parts: [
-			(input) => {
+			input => {
 				let cmds = input.split('\n').map(i => parseInt(i))
 				let pos = 0
 				let steps = 0
@@ -169,7 +169,7 @@ var aoc =  [
 				}
 				return steps
 			},
-			(input) => {
+			input => {
 				let cmds = input.split('\n').map(i => parseInt(i))
 				let pos = 0
 				let steps = 0
@@ -194,9 +194,9 @@ aoc.forEach((day, i) => {
 
 let renderAoc = (i) => {
 	document.getElementById('results').innerHTML = `DAY ${i+1} RESULTS:<br/><br/>`
-	fetch(`/day${i+1}.txt`)
-		.then((response) => response.text())
-		.then((input) => {
+	fetch(`./day${i+1}.txt`)
+		.then(response => response.text())
+		.then(input => {
 			aoc[i].parts.forEach((part, j) => {
 				document.getElementById('results').innerHTML += `Part ${j+1}: ${part(input)}<br/>`
 			})

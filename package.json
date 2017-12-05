@@ -1,5 +1,5 @@
 {
-  "name": "joshthompson-adventofcode2017",
+  "name": "joshthompson-adventofcode",
   "version": "1.0.0",
   "dependencies": {
     "static-server": "^3.0.0"
