@@ -1,5 +1,5 @@
-# Advent of Code: 2017
-My solutions to Advent of Code 2017 puzzles
+# Advent of Code
+My solutions to Advent of Code puzzles
 
 # Setup
 * Download zip/clone
