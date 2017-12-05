@@ -6,4 +6,4 @@ My solutions to Advent of Code puzzles
 * `cd project_director`
 * `npm install`
 * `node static-server`
-* Visit `http://localhost:1990/`
+* Visit `http://localhost:1990/` in a browser that supports ES6
