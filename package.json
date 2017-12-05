@@ -1,7 +1,24 @@
 {
-	"name": "joshthompson-adventofcode",
-	"version": "1.0.0",
-	"dependencies": {
-		"static-server": "^3.0.0"
-	}
+  "name": "joshthompson-adventofcode2017",
+  "version": "1.0.0",
+  "dependencies": {
+    "static-server": "^3.0.0"
+  },
+  "main": "static-server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshthompson/adventofcode2017.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshthompson/adventofcode2017/issues"
+  },
+  "homepage": "https://github.com/joshthompson/adventofcode2017#readme",
+  "description": ""
 }
