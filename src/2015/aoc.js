@@ -1,5 +1,3 @@
-require('js-md5')
-
 var aoc =  [
 	{
 		// DAY 1
