@@ -7,3 +7,6 @@ My solutions to Advent of Code puzzles
 * `npm install`
 * `node static-server`
 * Visit `http://localhost:1990/` in a browser that supports ES6
+
+# View
+View my version at https://www.joshthompson.se/adventofcode
