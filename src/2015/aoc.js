@@ -79,10 +79,212 @@ var aoc =  [
 	},
 	{
 		// DAY 4
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 5
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 6
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 7
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 8
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 9
 		parts: [
 			input => {
-				
+				let distances = {}
+				input.split('\n').forEach(text => {
+					let data = text.match(/([a-zA-Z]*) to ([a-zA-Z]*) = ([0-9]*)/i)
+					distances[data[1]] = distances[data[1]] ? distances[data[1]] : {}
+					distances[data[2]] = distances[data[2]] ? distances[data[2]] : {}
+					distances[data[1]][data[2]] = distances[data[2]][data[1]] = parseInt(data[3])
+				})
+				console.log(distances)
+
+				_.forEach(distances, () => {
+					
+				})
 			}
 		]
+	},
+	{
+		// DAY 10
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 11
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 12
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 13
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 14
+		parts: [
+			input => {
+				let tavlingtid = 2503
+				let regex = /([a-zA-Z]*) can fly ([0-9]*) km\/s for ([0-9]*) seconds, but then must rest for ([0-9]*) seconds./i
+				let renar = input.split('\n').map(text => {
+					let ren = text.match(regex)
+					return {
+						namn: ren[1],
+						fart: parseInt(ren[2]),
+						flygtid: parseInt(ren[3]),
+						vilotid: parseInt(ren[4]),
+						distans: 0
+					}
+				})
+
+				renar.forEach(ren => {
+					let tid = 0
+					let flyg = true
+					while (tid < tavlingtid) {
+						tid += flyg ? ren.flygtid : ren.vilotid
+						ren.distans += (flyg ? ren.fart * (ren.flygtid + Math.min(0, tavlingtid - tid)) : 0)
+						flyg = !flyg
+					}
+				})
+
+				renar.sort((renA, renB) => renA.distans < renB.distans)
+				return renar[0].distans
+			},
+			input => {
+				let tavlingtid = 2503
+				let regex = /([a-zA-Z]*) can fly ([0-9]*) km\/s for ([0-9]*) seconds, but then must rest for ([0-9]*) seconds./i
+				let renar = input.split('\n').map(text => {
+					let ren = text.match(regex)
+					return {
+						namn: ren[1],
+						fart: parseInt(ren[2]),
+						flygtid: parseInt(ren[3]),
+						vilotid: parseInt(ren[4]),
+						distans: 0,
+						nedrakning: parseInt(ren[3]),
+						flyg: true,
+						poang: 0
+					}
+				})
+				for (let s = 0; s < tavlingtid; s++) {
+					let maxDistans = 0
+					renar.forEach(ren => {
+						ren.distans += ren.flyg ? ren.fart : 0
+						if (!--ren.nedrakning) {
+							ren.flyg = !ren.flyg
+							ren.nedrakning = ren.flyg ? ren.flygtid : ren.vilotid
+						}
+						maxDistans = Math.max(maxDistans, ren.distans)
+					})
+					_.filter(renar, ren => ren.distans === maxDistans).forEach(ren => ren.poang++)
+				}
+				renar.sort((renA, renB) => renA.poang < renB.poang)
+				return renar[0].poang
+			}
+		]
+	},
+	{
+		// DAY 15
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 16
+		parts: [input => 'Skipping...']
+	},
+	{
+		// DAY 17
+		warn: true,
+		parts: [
+			input => {
+				const target = 150
+				let containers = input.split('\n').map(i => parseInt(i))
+				let combos = {}
+				let combos_list = {}
+				let addCombo = (total, combo) => {
+					combos_list[combo.concat().sort().join()] = true
+					combos[total] ? combos[total].push(combo) : combos[total] = [combo]
+				}
+				let comboTotal = (combo) => combo.map(i => containers[i]).reduce((a, b) => a + b)
+				containers.forEach((c, i) => addCombo(c, [i]))
+				var changes = false
+				do {
+					changes = false
+					_.forEach(combos, a => _.forEach(combos, b => {
+						let total = comboTotal(a[0]) + comboTotal(b[0])
+						if (total <= target) {
+
+							// Loop sub groups
+							a.forEach(c => b.forEach(d => {
+								let combo = c.concat(d)
+								if (_.uniq(combo).length === c.length + d.length && !combos_list[combo.concat().sort().join()]) {
+									let total = comboTotal(combo)
+									if (total <= target) {
+										addCombo(total, combo)
+										changes = true
+									}
+								}
+							}))
+
+
+						}
+					}))
+				} while (changes)
+				return combos[target].length
+			},
+			input => {
+				const target = 150
+				let containers = input.split('\n').map(i => parseInt(i))
+				let combos = {}
+				let combos_list = {}
+				let addCombo = (total, combo) => {
+					combos_list[combo.concat().sort().join()] = true
+					combos[total] ? combos[total].push(combo) : combos[total] = [combo]
+				}
+				let comboTotal = (combo) => combo.map(i => containers[i]).reduce((a, b) => a + b)
+				containers.forEach((c, i) => addCombo(c, [i]))
+				var changes = false
+				do {
+					changes = false
+					_.forEach(combos, a => _.forEach(combos, b => {
+						let total = comboTotal(a[0]) + comboTotal(b[0])
+						if (total <= target) {
+
+							// Loop sub groups
+							a.forEach(c => b.forEach(d => {
+								let combo = c.concat(d)
+								if (_.uniq(combo).length === c.length + d.length && !combos_list[combo.concat().sort().join()]) {
+									let total = comboTotal(combo)
+									if (total <= target) {
+										addCombo(total, combo)
+										changes = true
+									}
+								}
+							}))
+
+
+						}
+					}))
+				} while (changes)
+
+				let minContainers = Math.min.apply(null, combos[target].map(i => i.length))
+				return combos[target].filter(a => a.length === minContainers).length
+			}
+		]
+	},
+	{
+		// DAY 18
+		parts: [input => 'Skipping...']
 	}
 ]
