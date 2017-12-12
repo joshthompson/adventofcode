@@ -1,7 +1,6 @@
 AdventOfCode.day11 = {
 
 	part1: input => {
-		
 		let x = 0, y = 0
 		input.split(',').forEach(d => {
 
@@ -15,12 +14,10 @@ AdventOfCode.day11 = {
 			if (d === 'sw') { x--; y-- }
 
 		})
-
 		return Math.abs(x) + Math.abs(y)
 	},
 	
 	part2: input => {
-		
 		let x = 0, y = 0, max = 0
 		input.split(',').forEach(d => {
 
@@ -36,7 +33,6 @@ AdventOfCode.day11 = {
 			max = Math.max(max, Math.abs(x) + Math.abs(y))
 
 		})
-
 		return max
 	}
 
