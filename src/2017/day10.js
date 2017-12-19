@@ -6,9 +6,9 @@ AdventOfCode.day10 = {
 		return list[0] * list[1]
 	},
 	
-	part2: input => {
+	part2: (input, rounds) => {
 		let lengths = input.split('').map(c => c.charCodeAt(0)).concat(17, 31, 73, 47, 23)
-		let list = AdventOfCode.day10.process(lengths, 64)
+		let list = AdventOfCode.day10.process(lengths, rounds ? rounds : 64)
 		let dense = []
 		while (list.length) dense.push(list.splice(0, 16).reduce((a, b) => a ^ b))
 		return dense.map(x => x.toString(16)).map(x => x.length === 1 ? '0' + x : x).join('')
@@ -38,3 +38,5 @@ AdventOfCode.day10 = {
 	}
 
 }
+
+AdventOfCode.knotHash = (input, rounds) => AdventOfCode.day10.part2(input, rounds) // For use in other days tasks

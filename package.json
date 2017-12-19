@@ -2,6 +2,7 @@
   "name": "joshthompson-adventofcode",
   "version": "1.0.0",
   "dependencies": {
+    "js-csp": "^1.0.1",
     "static-server": "^3.0.0"
   },
   "main": "static-server.js",
