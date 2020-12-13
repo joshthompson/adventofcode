@@ -1,5 +1,5 @@
 # Advent of Code
-My solutions to [Advent of Code|https://adventofcode.com/] puzzles
+My solutions to [Advent of Code](https://adventofcode.com/) puzzles
 
 # 2020
 Work in progress - currently completing them as they get released but perhaps I get distracted at some point
