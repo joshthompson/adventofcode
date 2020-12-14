@@ -31,10 +31,7 @@ function version2(program) {
 			let [,i,v] = line.match(/mem\[([\d]*)\] = ([\d]*)/)
 			bin = Number(i).toString(2).padStart(36, '0')
 			const addressBin = mask.split('').map((m, b) => m === '0' ? bin[b] : m === '1' ? 1 : 'X').join('')
-			floatingValues(addressBin).forEach(value => {
-				mem[value] = Number(v)
-			})
-			
+			floatingValues(addressBin).forEach(value => mem[value] = Number(v))
 		}
 	})
 	return Object.keys(mem).map(m => mem[m]).reduce((a, b) => a + b, 0)
