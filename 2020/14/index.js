@@ -23,7 +23,7 @@ function version1(program) {
 
 function version2(program) {
 	let mask = ''.padStart(36, '0')
-	let mem = {}
+	let mem = []
 	program.forEach(line => {
 		if (line.substr(0, 7) === 'mask = ') {
 			mask = line.substr(7)
