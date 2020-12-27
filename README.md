@@ -2,7 +2,7 @@
 My solutions to [Advent of Code](https://adventofcode.com/) puzzles
 
 # 2020
-Complete
+🌟 Complete! 🌟
 
 # 2019
 Work in progress
