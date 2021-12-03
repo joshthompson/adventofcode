@@ -1,6 +1,9 @@
 # Advent of Code
 My solutions to [Advent of Code](https://adventofcode.com/) puzzles
 
+# 2021
+Here we go again
+
 # 2020
 🌟 Complete! 🌟
 
