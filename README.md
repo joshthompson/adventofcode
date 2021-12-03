@@ -11,7 +11,7 @@ Here we go again
 Work in progress
 
 # 2018
-No started
+Not started
 
 # For 2015 and 2017 solutions (unfinished)
 
@@ -21,4 +21,4 @@ No started
 * Visit `http://localhost:1990/` in a browser that supports ES6
 
 # 2016
-No started
+Not started
