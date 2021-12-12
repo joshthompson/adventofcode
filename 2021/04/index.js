@@ -1,10 +1,11 @@
 const fs = require('fs')
 
 fs.readFile(`${__dirname}/input.txt`, (_e, data) => {
-  const game = new BingoGame(data.toString())
-  const results = game.run()
-	console.log('Part 1', results[0].score)
-	console.log('Part 2', results[results.length - 1].score)
+  const start = +new Date()
+  const results = (new BingoGame(data.toString())).run()
+  console.log('Part 1', results[0].score)
+  console.log('Part 2', results[results.length - 1].score)
+  console.log('Time:', new Date() - start, 'ms')
 })
 
 class BingoGame {

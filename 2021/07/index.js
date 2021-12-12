@@ -1,9 +1,11 @@
 const fs = require('fs')
 
 fs.readFile(`${__dirname}/input.txt`, (_e, data) => {
+  const start = +new Date()
 	const crabs = data.toString().split(',').map(Number)
 	console.log('Part 1', part1(crabs))
 	console.log('Part 2', part2(crabs))
+  console.log('Time:', new Date() - start, 'ms')
 })
 
 function part1(crabs) {

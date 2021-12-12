@@ -1,9 +1,11 @@
 const fs = require('fs')
 
 fs.readFile(`${__dirname}/test.txt`, (_e, data) => {
+  const start = +new Date()
   const lines = data.toString().split('\n')
   console.log('Part 1', part1(lines))
   console.log('Part 2', part2(lines))
+  console.log('Time:', new Date() - start, 'ms')
 })
 
 function part1(lines) {

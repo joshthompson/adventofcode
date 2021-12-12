@@ -1,11 +1,12 @@
 const fs = require('fs')
 
 fs.readFile(`${__dirname}/input.txt`, (_e, data) => {
+  const start = +new Date()
   const map = new HeightMap(data.toString().split('\n').map(line => line.split('').map(Number)))
-
   map.renderBasins()
   console.log('Part 1', part1(map))
   console.log('Part 2', part2(map))
+  console.log('Time:', new Date() - start, 'ms')
 })
 
 class HeightMap {

@@ -1,8 +1,10 @@
 const fs = require('fs')
 
 fs.readFile(`${__dirname}/input.txt`, (_e, data) => {
+  const start = +new Date()
   console.log('Part 1', part1(data.toString().split('\n').map(line => line.split('').map(Number))))
   console.log('Part 2', part2(data.toString().split('\n').map(line => line.split('').map(Number))))
+  console.log('Time:', new Date() - start, 'ms')
 })
 
 function part1(octopi) {
@@ -39,6 +41,7 @@ function step(octopi) {
   }
   return flashes
 }
+
 function gainEnergy(octopi, x, y) {
   if (octopi[y] === undefined || octopi[y][x] === undefined) {
     return 0
