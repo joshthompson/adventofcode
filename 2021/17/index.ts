@@ -35,7 +35,7 @@ function part1(target: Target) {
 
 function part2(target: Target) {
   const min: Vector = {
-    x: Math.ceil(xVel(target.min.x)),
+    x: Math.ceil(reverseTriangularNumber(target.min.x)),
     y: target.min.y,
   }
   const max: Vector = {
@@ -45,17 +45,14 @@ function part2(target: Target) {
   let hits = 0
   for (let y = min.y; y <= max.y; y++) {
     for (let x = min.x; x <= max.x; x++) {
-      hits += +hitTarget({ x, y }, target)
+      hits += hitTarget({ x, y }, target)
     }
   }
   return hits
 }
 
-function xVel(x: number) { // Reverse triangular number
-  return Math.max(
-    (-1 - Math.sqrt(1 + 8 * x)) / 2,
-    (-1 + Math.sqrt(1 + 8 * x)) / 2
-  )
+function reverseTriangularNumber(x: number) {
+  return (-1 + Math.sqrt(1 + 8 * x)) / 2
 }
 
 function triangularNumber(n: number) {
@@ -74,8 +71,8 @@ function hitTarget(velocity: Vector, target: Target) {
     const xCheck = pos.x >= target.min.x && pos.x <= target.max.x
     const yCheck = pos.y >= target.min.y && pos.y <= target.max.y
     if (xCheck && yCheck) {
-      return true
+      return 1
     }
   }
-  return false
+  return 0
 }
